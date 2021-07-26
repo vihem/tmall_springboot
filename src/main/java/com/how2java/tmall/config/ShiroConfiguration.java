@@ -1,9 +1,3 @@
-/**
-* 模仿天猫整站 springboot 教程 为 how2j.cn 版权所有
-* 本教程仅用于学习使用，切勿用于非法用途，由此引起一切后果与本站无关
-* 供购买者学习，请勿私自传播，否则自行承担相关法律责任
-*/	
-
 package com.how2java.tmall.config;
 
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
@@ -18,13 +12,11 @@ import org.springframework.context.annotation.Configuration;
 import com.how2java.tmall.realm.JPARealm;
 
 @Configuration
-public class ShiroConfiguration {
+class ShiroConfiguration {
     @Bean
     public static LifecycleBeanPostProcessor getLifecycleBeanPostProcessor() {
         return new LifecycleBeanPostProcessor();
     }
-
-
 
     @Bean
     public ShiroFilterFactoryBean shirFilter(SecurityManager securityManager){
@@ -32,8 +24,6 @@ public class ShiroConfiguration {
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         return shiroFilterFactoryBean;
     }
-    
-
 
     @Bean
     public SecurityManager securityManager(){
@@ -57,12 +47,11 @@ public class ShiroConfiguration {
         return hashedCredentialsMatcher;
     }
 
-
     /**
      *  开启shiro aop注解支持.
      *  使用代理方式;所以需要开启代码支持;
-     * @param securityManager
-     * @return
+     * @param securityManager securityManager
+     * @return AuthorizationAttributeSourceAdvisor
      */
     @Bean
     public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityManager securityManager){
@@ -71,9 +60,3 @@ public class ShiroConfiguration {
         return authorizationAttributeSourceAdvisor;
     }
 }
-
-/**
-* 模仿天猫整站 springboot 教程 为 how2j.cn 版权所有
-* 本教程仅用于学习使用，切勿用于非法用途，由此引起一切后果与本站无关
-* 供购买者学习，请勿私自传播，否则自行承担相关法律责任
-*/	

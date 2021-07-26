@@ -1,9 +1,3 @@
-/**
-* 模仿天猫整站 springboot 教程 为 how2j.cn 版权所有
-* 本教程仅用于学习使用，切勿用于非法用途，由此引起一切后果与本站无关
-* 供购买者学习，请勿私自传播，否则自行承担相关法律责任
-*/	
-
 package com.how2java.tmall.service;
 
 import java.util.List;
@@ -34,7 +28,7 @@ public class CategoryService {
 		categoryDAO.save(bean);
 	}
 
-	@CacheEvict(allEntries=true)
+	@CacheEvict(allEntries=true)	//@CacheEvict是清除缓存的注解，allEntries为true时，意思是说这个清除缓存是清除当前value值空间下的所有缓存数据
 //	@CacheEvict(key="'category-one-'+ #p0")
 	public void delete(int id) {
 		categoryDAO.delete(id);
@@ -96,8 +90,4 @@ public class CategoryService {
 	}
 }
 
-/**
-* 模仿天猫整站 springboot 教程 为 how2j.cn 版权所有
-* 本教程仅用于学习使用，切勿用于非法用途，由此引起一切后果与本站无关
-* 供购买者学习，请勿私自传播，否则自行承担相关法律责任
-*/	
+
